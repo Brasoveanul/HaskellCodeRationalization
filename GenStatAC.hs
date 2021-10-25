@@ -79,14 +79,13 @@ randomList n = take n.unfoldr (Just . randomR(1,100))
 main::IO()
 main=do
 {
-  ltest<-return [1,1,1,2,2,2,2,3]; 
   seed<-newStdGen;
   lista<-return (randomList 2000000 seed);
   listas<-return (sort lista);
   
-  putStrLn "|-------------------------------------|";
-  putStrLn "|Number of items in the list:2.000.000|";  
-  putStrLn "|-------------------------------------|";
+  putStrLn "|------------------------------------|";
+  putStrLn "|Number of items in the list:2000.000|";  
+  putStrLn "|------------------------------------|";
 
   putStrLn "|Function tested: <genFIt_1>...      |"; 
   timeIt $ (return (genFIt_1 listas))>>=(\lstat->putStrLn $ "|"++ (show (last lstat)));
